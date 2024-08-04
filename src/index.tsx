@@ -3,12 +3,15 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import WeatherApp from './components/weatherApp/WeatherApp';
 import Layout from './components/layout/Layout';
 import './index.css';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  <Provider store={store}>
   <HashRouter>
     <Routes>
       <Route path='/' element={<Layout />} >
@@ -18,6 +21,7 @@ root.render(
       </Route>
     </Routes>
   </HashRouter>
+  </Provider>
 );
 
 

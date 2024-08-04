@@ -1,18 +1,21 @@
 import { useFormik } from 'formik';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { IWeatherData } from '../../types/weather';
 import ErrorPage from '../error/ErrorPage';
 import MyButton from '../myButton/MyButton';
 import WeatherCard from '../weatherCard/WeatherCard';
 import style from './weatherApp.module.css';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { getWeather } from '../../features/weather/weatherAction';
+import weatherSlice from '../../features/weather/weatherSlice';
 
 
 interface IFormCity {
   city: string;
 }
 
-const initialWeather: IWeatherData = {
+export const initialWeather: IWeatherData = {
   coord: {
     lon: 0,
     lat: 0
@@ -59,11 +62,10 @@ const schema = Yup.object().shape({
 
 export default function WeatherApp() {
 
+  const dispatch =useAppDispatch()
+  const {weathers, isLoading, error} = useAppSelector(state => state.weathers)
   const [weatherData, setWeatherData] = useState<IWeatherData>(initialWeather);
-  const [error, setError] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [favorites, setFavorites] = useState<IWeatherData[]>([]);
-
 
   const formik = useFormik({
     initialValues: {
@@ -72,46 +74,49 @@ export default function WeatherApp() {
     validationSchema: schema,
     validateOnChange: false,
     onSubmit: (values: IFormCity, { resetForm }) => {
-      setError('');
-      setWeatherData(initialWeather);
-      fetchWeather(values.city);
+      dispatch(getWeather(values.city))
       resetForm();
     }
   });
 
 
 
-  const fetchWeather = async (city: string) => {
-    setIsLoading(true);
-    setTimeout(async () => {
-      try {
-        console.log(isLoading);
-        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=95abbc8a327ef422700ea93c6cee52f3`);
-        if (!res.ok) {
-          throw new Error(res.statusText);
-        }
-        const data = await res.json();
-        setWeatherData(data);
-        setIsLoading(false);
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setIsLoading(false);
-          setError(err.message);
-        }
-      }
-    }, 1000);
+  // const fetchWeather = async (city: string) => {
+  //   setIsLoading(true);
+  //   setTimeout(async () => {
+  //     try {
+  //       console.log(isLoading);
+  //       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=95abbc8a327ef422700ea93c6cee52f3`);
+  //       if (!res.ok) {
+  //         throw new Error(res.statusText);
+  //       }
+  //       const data = await res.json();
+  //       setWeatherData(data);
+  //       setIsLoading(false);
+  //     } catch (err: unknown) {
+  //       if (err instanceof Error) {
+  //         setIsLoading(false);
+  //         setError(err.message);
+  //       }
+  //     }
+  //   }, 1000);
 
-  };
+  // };
 
-  const submitAction = (e: FormEvent) => {
-    e.preventDefault();
-    formik.handleSubmit();
-    setWeatherData(initialWeather);
-    setError('')
-  };
+  // useEffect(()=>{
+  //   dispatch(getWeather(city))
+  // },[]);
+
+  // const {weathers, isLoading} = useAppSelector(state => state.weathers)
+  // const submitAction = (e: FormEvent) => {
+  //   e.preventDefault();
+  //   formik.handleSubmit();
+  //   setWeatherData(initialWeather);
+  //   setError('')
+  // };
 
   const addCard = () => {
-    setFavorites([...favorites, weatherData]);
+    setFavorites([...favorites, weathers]);
   };
 
   const deleteCard = (id: number) => {
@@ -122,7 +127,7 @@ export default function WeatherApp() {
 
   return (
     <div>
-      <form className={style.form} onSubmit={submitAction}>
+      <form className={style.form} onSubmit={formik.handleSubmit}>
         <input className={style.input} name='city' onChange={formik.handleChange} value={formik.values.city} type="text" />
         <MyButton type='submit' name='Search' />
       </form>
