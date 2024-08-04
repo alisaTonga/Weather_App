@@ -1,0 +1,28 @@
+.myButton {
+  width: 146px;
+  height: 48px;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #3678B4;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+/* стили сработают при наведении мышкой на кнопку */
+.myButton:hover {
+  border: 1px solid rgb(255, 196, 101);}
+/* стили сработают при нажатии на кнопку */
+.myButton:active {
+  background-color: #76a7d5;
+}
+
+.myButton:disabled {
+  background: linear-gradient(145deg, #d3d3d3, #e0e0e0); /* Subtle background change */
+  box-shadow: 3px 3px 6px #a9a9a9, -3px -3px 6px #ffffff; /* Subtle shadow change */
+  color: #999;
+  cursor: not-allowed;
+}

@@ -1,0 +1,24 @@
+.header {
+  width: 100%;
+  background-color: rgb(18, 45, 77, 0.5);
+  border: 1px #D2D2D2 solid;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 25px 85px;
+}
+
+header span {
+  color: white;
+  font-size: 24px;
+}
+
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.active {
+  text-decoration: underline;
+}
