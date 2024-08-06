@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <WeatherProvider>
+  <Provider store={store}>
     {/* все что внутри это children для WeatherProvider */}
     <HashRouter>
       <Routes>
@@ -25,7 +25,7 @@ root.render(
       </Routes>
     </HashRouter>
     {/* здесь заканчиваются children */}
-  </WeatherProvider>
+  </Provider>
 );
 
 

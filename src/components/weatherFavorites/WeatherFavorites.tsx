@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { removeFavorite } from "../../features/weather/weatherSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import WeatherCard from "../weatherCard/WeatherCard";
-import { WeatherContext } from "../weatherProvider/WeatherProvider";
+import { getWeather } from '../../features/weather/weatherAction';
 
 export default function WeatherFavorites() {
-  // данные мы забираем через хук useContext()
-    const { favorites, setFavorites } = useContext(WeatherContext);
+    const dispatch = useAppDispatch();
+    const favorites = useAppSelector(state => state.weathers.favorites);
 
     const deleteCard = (id: number) => {
-        setFavorites(favorites.filter((card) => card.id !== id));
+        dispatch(removeFavorite(id));
     };
 
     return (

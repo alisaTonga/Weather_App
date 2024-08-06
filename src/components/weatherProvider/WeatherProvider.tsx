@@ -15,7 +15,7 @@
     }
 
     // начальное значения для данных в контекст
-    const initialContext: IWeatherContext = {
+    export const initialContext: IWeatherContext = {
     favorites: [],
     setFavorites: () => { }
     };
