@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherData } from "../../types/weather";
 import { getWeather } from "./weatherAction";
+import { IWeatherCardProps } from "../../components/weatherCard/WeatherCard";
 
 interface IWeatherState {
-    weathers: IWeatherData[];
+    weathers: IWeatherCardProps[];
     isLoading: boolean;
     error: string;
 }

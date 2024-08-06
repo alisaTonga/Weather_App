@@ -10,7 +10,7 @@ export const links:ILinks[] = [
     title: 'Home'
   },
   {
-    pathname: '/shop',
+    pathname: '/weathers',
     title: 'Weathers'
   },
 ];

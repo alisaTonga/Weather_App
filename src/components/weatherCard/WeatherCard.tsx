@@ -3,7 +3,7 @@ import Loader from '../loader/Loader';
 import MyButton from '../myButton/MyButton';
 import style from './weatherCard.module.css';
 
-interface IWeatherCardProps {
+export interface IWeatherCardProps {
   image?: string;
   id: number;
   city: string;
