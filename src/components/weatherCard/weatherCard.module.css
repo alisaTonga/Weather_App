@@ -28,37 +28,87 @@
 .weatherDataWrapper {
   display: flex;
   margin-bottom: 19px;
-}
-
-.img {
-  height: 90px;
-  width: 90px;
+  flex: 1;
 }
 
 .imgSection {
   display: flex;
   justify-content: center;
   flex: 1;
+  gap: 10px;
+}
+
+.img {
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.img:hover {
+  transform: scale(1.05);
 }
 
 .buttonWrapper {
   display: flex;
   justify-content: space-evenly;
+  margin-top: auto;
 }
 
-@media screen and (max-width: 480px) {
+/* Small mobile devices (iPhone SE, small Android phones) */
+@media screen and (max-width: 375px) {
   .card {
     width: 100%;
     max-width: 320px;
-    height: auto;
-    min-height: 180px;
+    height: 220px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .card h2 {
+    font-size: 36px;
+    margin-bottom: 5px;
+  }
+
+  .card h5 {
+    font-size: 16px;
+  }
+
+  .weatherDataWrapper {
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgSection {
+    margin-top: 10px;
+    gap: 5px;
+  }
+
+  .img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .buttonWrapper {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
+/* Mobile devices */
+@media screen and (min-width: 376px) and (max-width: 480px) {
+  .card {
+    width: 100%;
+    max-width: 360px;
+    height: 220px;
     padding: 20px;
     margin-bottom: 20px;
   }
 
   .card h2 {
     font-size: 42px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .card h5 {
@@ -69,23 +119,26 @@
     margin-bottom: 15px;
   }
 
+  .imgSection {
+    gap: 8px;
+  }
+
   .img {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
   }
 
   .buttonWrapper {
-    flex-direction: row;
     gap: 10px;
   }
 }
 
+/* Tablet devices */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .card {
     width: 100%;
     max-width: 500px;
-    height: auto;
-    min-height: 200px;
+    height: 220px;
     padding: 24px 30px;
   }
 
@@ -94,7 +147,20 @@
   }
 
   .img {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
+  }
+}
+
+/* Desktop and larger screens */
+@media screen and (min-width: 769px) {
+  .card {
+    width: 709px;
+    height: 220px;
+  }
+
+  .img {
+    height: 90px;
+    width: 90px;
   }
 }

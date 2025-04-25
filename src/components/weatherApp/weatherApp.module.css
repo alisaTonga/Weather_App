@@ -102,9 +102,13 @@
 }
 
 .cardWrapper {
-  height: 400px;
+  width: 100%;
+  max-width: 709px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .descriptionSection {
@@ -207,7 +211,7 @@
   }
 
   .cardWrapper {
-    padding: 0 1rem;
+    gap: 15px;
   }
 }
 
@@ -256,8 +260,7 @@
   }
 
   .cardWrapper {
-    padding: 0 0.5rem;
-    height: 350px;
+    gap: 10px;
   }
 
   .header {

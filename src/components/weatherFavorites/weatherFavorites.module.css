@@ -1,0 +1,37 @@
+.favoritesContainer {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardWrapper {
+  width: 100%;
+  max-width: 709px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .favoritesContainer {
+    padding: 15px;
+  }
+
+  .cardWrapper {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .favoritesContainer {
+    padding: 10px;
+  }
+
+  .cardWrapper {
+    gap: 10px;
+  }
+}
