@@ -342,6 +342,31 @@
   padding-top: 80px;
 }
 
+/* Tablet and smaller devices */
+@media screen and (max-width: 1023px) {
+  .header {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .headerTitle {
+    font-size: 20px;
+  }
+
+  .headerNav {
+    gap: 12px;
+  }
+
+  .headerLink {
+    font-size: 15px;
+    padding: 6px 12px;
+  }
+
+  .mainContent {
+    padding-top: 70px;
+  }
+}
+
+/* Mobile devices */
 @media screen and (max-width: 767px) {
   .header {
     padding: 0.75rem 1rem;
@@ -362,5 +387,29 @@
 
   .mainContent {
     padding-top: 60px;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .headerTitle {
+    font-size: 16px;
+  }
+
+  .headerNav {
+    gap: 6px;
+  }
+
+  .headerLink {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .mainContent {
+    padding-top: 50px;
   }
 }
