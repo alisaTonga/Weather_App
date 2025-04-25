@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
-import styles from './header.module.css';
+import { Link, useLocation } from "react-router-dom";
+import styles from "./header.module.css";
 
-import { links } from './links';
+import { links } from "./links";
 
 export default function Header() {
   const location = useLocation();
@@ -13,13 +13,13 @@ export default function Header() {
         {links.map((el, index) => (
           <Link
             key={index}
-            className={location.pathname === el.pathname ? styles.active : ''}
-            to={el.pathname}>{el.title}</Link>
+            className={location.pathname === el.pathname ? styles.active : ""}
+            to={el.pathname}
+          >
+            {el.title}
+          </Link>
         ))}
-
       </div>
-
     </header>
   );
 }
-

@@ -65,14 +65,30 @@ export default function WeatherApp() {
         </p>
       </div>
       <form className={style.form} onSubmit={submitAction}>
-        <input
-          className={style.input}
-          name="city"
-          onChange={formik.handleChange}
-          value={formik.values.city}
-          type="text"
-        />
-        <MyButton type="submit" name="Search" />
+        <div className={style.searchWrapper}>
+          <button
+            type="submit"
+            className={style.searchIcon}
+            aria-label="Search"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+          <input
+            className={style.input}
+            name="city"
+            onChange={formik.handleChange}
+            value={formik.values.city}
+            type="text"
+            placeholder="Search"
+          />
+        </div>
       </form>
       <div className={style.cardWrapper}>
         {error && <ErrorPage text={error} type="api" />}
