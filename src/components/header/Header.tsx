@@ -8,18 +8,20 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <span>Weather App</span>
-      <div>
+      <span className={styles.headerTitle}>Weather App</span>
+      <nav className={styles.headerNav}>
         {links.map((el, index) => (
           <Link
             key={index}
-            className={location.pathname === el.pathname ? styles.active : ""}
+            className={`${styles.headerLink} ${
+              location.pathname === el.pathname ? styles.active : ""
+            }`}
             to={el.pathname}
           >
             {el.title}
           </Link>
         ))}
-      </div>
+      </nav>
     </header>
   );
 }

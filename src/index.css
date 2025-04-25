@@ -17,13 +17,6 @@ code {
     monospace;
 }
 
-header a {
-  font-size: 24px;
-  text-decoration: none;
-  color: white;
-  margin-left: 63px;
-}
-
 .lesson-container {
   margin: auto;
   display: flex;

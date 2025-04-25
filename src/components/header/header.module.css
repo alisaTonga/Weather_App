@@ -9,15 +9,71 @@
   padding: 25px 85px;
 }
 
-header span {
+.headerTitle {
   color: white;
   font-size: 24px;
 }
 
-.header a:hover {
+.headerNav {
+  display: flex;
+  gap: 20px;
+}
+
+.headerLink {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  margin-left: 63px;
+}
+
+.headerLink:hover {
   text-decoration: underline;
 }
 
 .active {
   text-decoration: underline;
+}
+
+/* Tablet and smaller devices */
+@media screen and (max-width: 1023px) {
+  .header {
+    padding: 15px 40px;
+  }
+
+  .headerLink {
+    font-size: 20px;
+    margin-left: 40px;
+  }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .headerTitle {
+    font-size: 20px;
+  }
+
+  .headerLink {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 8px 15px;
+  }
+
+  .headerTitle {
+    font-size: 18px;
+  }
+
+  .headerLink {
+    font-size: 14px;
+    margin-left: 15px;
+  }
 }
