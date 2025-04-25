@@ -84,73 +84,15 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-@media only screen and (max-width: 480px) {
-  .header {
-    padding: 0.75rem 1rem;
-  }
-
-  .headerTitle {
-    font-size: 18px;
-  }
-
-  .headerNav {
-    gap: 8px;
-  }
-
-  .headerLink {
-    font-size: 14px;
-    padding: 6px 10px;
-  }
-
-  .descriptionSection {
-    margin: 1rem 1rem 2rem;
-    padding: 1.5rem 1rem;
-  }
-
-  .descriptionSection h1 {
-    font-size: 24px;
-  }
-
-  .descriptionSection p {
-    font-size: 14px;
-    padding: 0 0.5rem;
-  }
-
-  .searchWrapper {
-    width: 90%;
-    margin: 0 auto;
-  }
-
+@media (max-width: 480px) {
   .input {
-    font-size: 16px;
-    height: 45px;
+    padding-right: calc(clamp(20px, 4%, 25px) + 30px + 15px);
+    padding-left: 20px;
+    font-size: 20px;
   }
 
-  .searchIcon {
-    width: 24px;
-    height: 24px;
-  }
-
-  .form {
-    margin-bottom: 2rem;
-  }
-
-  .cardWrapper {
-    padding: 0 1rem;
-  }
-}
-
-/* For devices that can hover */
-@media (hover: hover) {
-  .headerLink:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* For devices that don't support hover */
-@media (hover: none) {
-  .headerLink:active {
-    background: rgba(255, 255, 255, 0.1);
+  .input::placeholder {
+    font-size: 20px;
   }
 }
 
@@ -228,7 +170,119 @@
   z-index: -1;
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  .descriptionSection {
+    margin: 1rem 1rem 2rem;
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+  }
+
+  .descriptionSection h1 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+
+  .descriptionSection p {
+    font-size: 14px;
+    padding: 0 0.5rem;
+  }
+
+  .searchWrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .input {
+    font-size: 16px;
+    height: 45px;
+  }
+
+  .searchIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .form {
+    margin-bottom: 2rem;
+  }
+
+  .cardWrapper {
+    padding: 0 1rem;
+  }
+}
+
+/* Small mobile devices (iPhone SE, small Android phones) */
+@media screen and (max-width: 375px) {
+  .descriptionSection {
+    margin: 0.75rem 0.75rem 1.5rem;
+    padding: 1.25rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .descriptionSection h1 {
+    font-size: 20px;
+    margin-bottom: 0.75rem;
+  }
+
+  .descriptionSection p {
+    font-size: 12px;
+    padding: 0 0.25rem;
+  }
+
+  .searchWrapper {
+    width: 95%;
+  }
+
+  .input {
+    font-size: 14px;
+    height: 40px;
+    padding-right: calc(clamp(15px, 4%, 20px) + 24px + 10px);
+    padding-left: 15px;
+  }
+
+  .input::placeholder {
+    font-size: 14px;
+  }
+
+  .searchIcon {
+    width: 20px;
+    height: 20px;
+    right: clamp(15px, 4%, 20px);
+  }
+
+  .form {
+    margin-bottom: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .cardWrapper {
+    padding: 0 0.5rem;
+    height: 350px;
+  }
+
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .headerTitle {
+    font-size: 16px;
+  }
+
+  .headerNav {
+    gap: 6px;
+  }
+
+  .headerLink {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .mainContent {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .descriptionSection {
     margin: 1.5rem auto 3rem;
     padding: 2rem;
@@ -280,6 +334,33 @@
   transition: background-color 0.3s ease;
 }
 
+.headerLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .mainContent {
   padding-top: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .headerTitle {
+    font-size: 18px;
+  }
+
+  .headerNav {
+    gap: 8px;
+  }
+
+  .headerLink {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .mainContent {
+    padding-top: 60px;
+  }
 }
