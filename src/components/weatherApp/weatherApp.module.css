@@ -84,15 +84,73 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-@media (max-width: 480px) {
-  .input {
-    padding-right: calc(clamp(20px, 4%, 25px) + 30px + 15px);
-    padding-left: 20px;
-    font-size: 20px;
+@media only screen and (max-width: 480px) {
+  .header {
+    padding: 0.75rem 1rem;
   }
 
-  .input::placeholder {
-    font-size: 20px;
+  .headerTitle {
+    font-size: 18px;
+  }
+
+  .headerNav {
+    gap: 8px;
+  }
+
+  .headerLink {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .descriptionSection {
+    margin: 1rem 1rem 2rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .descriptionSection h1 {
+    font-size: 24px;
+  }
+
+  .descriptionSection p {
+    font-size: 14px;
+    padding: 0 0.5rem;
+  }
+
+  .searchWrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .input {
+    font-size: 16px;
+    height: 45px;
+  }
+
+  .searchIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .form {
+    margin-bottom: 2rem;
+  }
+
+  .cardWrapper {
+    padding: 0 1rem;
+  }
+}
+
+/* For devices that can hover */
+@media (hover: hover) {
+  .headerLink:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* For devices that don't support hover */
+@media (hover: none) {
+  .headerLink:active {
+    background: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -168,4 +226,60 @@
   top: -50px;
   right: 15%;
   z-index: -1;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .descriptionSection {
+    margin: 1.5rem auto 3rem;
+    padding: 2rem;
+    width: 90%;
+  }
+
+  .descriptionSection h1 {
+    font-size: 28px;
+  }
+
+  .searchWrapper {
+    width: 95%;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(47, 53, 66, 0.85);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.headerTitle {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+  text-decoration: none;
+}
+
+.headerNav {
+  display: flex;
+  gap: 20px;
+}
+
+.headerLink {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.mainContent {
+  padding-top: 80px;
 }

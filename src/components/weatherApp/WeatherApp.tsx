@@ -12,6 +12,7 @@ import {
   addFavorite,
   removeFavorite,
 } from "../../features/weather/weatherSlice";
+import { Link } from "react-router-dom";
 
 interface IFormCity {
   city: string;
